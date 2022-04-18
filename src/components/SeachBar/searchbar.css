@@ -1,0 +1,7 @@
+.searchContainer {
+    outline-style: solid;
+    outline-color: grey;
+	margin: 5px 15px;
+	border-radius: 1px!important;
+    width: 20vw;
+}
