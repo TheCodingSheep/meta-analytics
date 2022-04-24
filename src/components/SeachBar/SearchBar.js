@@ -7,9 +7,9 @@ const SearchBar = ({title, style}) => {
   return (
     <div className="searchContainer"     style={style} component="form">
       <IconButton type="submit"  aria-label="search">
-        <SearchIcon />
+        <SearchIcon  />
       </IconButton>
-      <InputBase  placeholder="Search" />
+      <InputBase fullWidth={true}  placeholder="Search" />
     </div>
   );
 };
