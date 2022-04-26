@@ -13,7 +13,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Meta from '../../src/components/Meta/Meta';
+import { useDispatch } from 'react-redux'; 
+import { loginUserAction } from '../Redux/Action/useAuthAction';
 
 function Copyright(props) {
   return (
@@ -31,19 +32,22 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-
+  const dispatch = useDispatch();
   
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+    const response = await dispatch(loginUserAction(data))
+    console.log('dispatch', response);
   };
+
 
   return (
     <ThemeProvider theme={theme}>
@@ -99,6 +103,7 @@ export default function SignIn() {
               sx={{ mt: 3, mb: 2 }}
             >
               Sign In
+
             </Button>
             <Grid container>
               <Grid item xs>
