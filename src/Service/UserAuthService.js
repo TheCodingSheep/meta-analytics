@@ -7,7 +7,8 @@ const getHeaders = () => {
 
 export const UserAuthService = {
     login: (data) => {
-        return axios.post('/api/auth/login',data);
+        console.log('servicedata', data);
+        return axios.post('/api/auth/signIn',data);
     },
     registerUser: (data) => {
         return axios.post('/api/auth/registerUser',data );
